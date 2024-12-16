@@ -38,14 +38,17 @@ public class AdapterBloodRequest extends RecyclerView.Adapter<AdapterBloodReques
         holder.contact.setText(list.get(position).getPhoneNumber() );
         holder.date.setText(list.get(position).getDate() );
         holder.location.setText(list.get(position).getLocation() );
-        holder.call.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:"+list.get(position).getPhoneNumber()));
-                context.startActivity(intent);
-            }
-        });
+        if (!list.get(position).getBloodGroup().equals("")){
+            holder.call.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(Intent.ACTION_DIAL);
+                    intent.setData(Uri.parse("tel:"+list.get(position).getPhoneNumber()));
+                    context.startActivity(intent);
+                }
+            });
+        }
+
     }
 
     @Override

@@ -132,9 +132,9 @@ public class SignUpAsDonor extends AppCompatActivity {
                     button.setText(day+"/"+month+"/"+year);
                 }
                 else{
-                    year=2022;
-                    month=10;
-                    day=17;
+                    year=2024;
+                    month=12;
+                    day=19;
                     button.setText(day+"/"+month+"/"+year);
                     button.setEnabled(false);
                 }

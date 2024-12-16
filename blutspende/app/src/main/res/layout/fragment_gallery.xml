@@ -63,7 +63,9 @@
             android:inputType="textEmailAddress"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:visibility="invisible"
+            android:enabled="false"/>
 
         <LinearLayout
             android:id="@+id/l"

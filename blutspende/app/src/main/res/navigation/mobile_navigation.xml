@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_bloodRequest">
+    app:startDestination="@+id/nav_home">
 
     <fragment
         android:id="@+id/nav_beADonor"
@@ -17,11 +17,7 @@
         android:label="Search Blood"
         tools:layout="@layout/fragment_home" />
 
-    <fragment
-        android:id="@+id/nav_bloodRequest"
-        android:name="com.example.blutspende.ui.bloodRequest.BloodRequest"
-        android:label="Blood Request"
-        tools:layout="@layout/fragment_blood_request" />
+
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.blutspende.ui.gallery.GalleryFragment"
@@ -33,5 +29,16 @@
         android:name="com.example.blutspende.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_bloodRequest"
+        android:name="com.example.blutspende.ui.bloodRequest.BloodRequest"
+        android:label="Blood Request"
+        tools:layout="@layout/fragment_blood_request" />
+    <fragment
+        android:id="@+id/nav_myPosts"
+        android:name="com.example.blutspende.ui.myPosts.MyPosts"
+        android:label="My Posts"
+        tools:layout="@layout/fragment_blood_request" />
 
 </navigation>

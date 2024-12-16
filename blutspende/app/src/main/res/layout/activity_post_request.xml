@@ -31,7 +31,8 @@
         android:drawableTint="@color/purple_500"
         android:layout_marginHorizontal="50dp"
         android:drawablePadding="4dp"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:maxLength="11"/>
 
     <com.google.android.material.textfield.TextInputEditText
             android:layout_marginTop="16dp"
@@ -45,103 +46,10 @@
             android:padding="16dp"
             android:drawableTint="@color/purple_500"
             android:drawablePadding="4dp"
-            android:hint="Enter address"
+            android:hint="Enter Clinic or Hospital Name"
             android:layout_marginHorizontal="50dp"
             android:textSize="18sp" />
 
-
-    <LinearLayout
-        android:id="@+id/l3"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="16dp"
-        android:layout_gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpCreateButton"
-        app:layout_constraintVertical_bias="0.206">
-
-        <TextView
-            android:id="@+id/hh3"
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:text="Division"
-            android:textStyle="bold"
-            android:textColor="@color/purple_500"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/postRequestDivision"
-            android:layout_width="165dp"
-            android:layout_height="40dp"
-            android:background="@android:drawable/btn_dropdown" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/lg3"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpCreateButton"
-        app:layout_constraintVertical_bias="0.206">
-
-        <TextView
-            android:id="@+id/hhh3"
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:text="District"
-            android:textStyle="bold"
-            android:textColor="@color/purple_500"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/postRequestDistrict"
-            android:layout_width="165dp"
-            android:layout_height="40dp"
-            android:background="@android:drawable/btn_dropdown" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/lgg3"
-        android:layout_width="300dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signUpCreateButton"
-        app:layout_constraintVertical_bias="0.206">
-
-        <TextView
-            android:id="@+id/hhhh3"
-            android:layout_width="135dp"
-            android:layout_height="wrap_content"
-            android:text="Blood Group"
-            android:textStyle="bold"
-            android:textColor="@color/purple_500"
-            android:textSize="20sp" />
-
-        <Spinner
-            android:id="@+id/postRequestBloodGroup"
-            android:layout_width="165dp"
-            android:layout_height="40dp"
-            android:background="@android:drawable/btn_dropdown" />
-
-    </LinearLayout>
 
     <Button
         android:layout_marginTop="20dp"

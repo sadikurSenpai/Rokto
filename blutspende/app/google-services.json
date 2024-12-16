@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "220468114705-1fqhpt8invdrip8qsttk8vr2mljrk8dp.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.blutspende",
-            "certificate_hash": "4fdcebfb9b339ab9290ac9acddd46fe9b0bbd714"
-          }
-        },
-        {
           "client_id": "220468114705-vgrr6593n7e8ppjujgn86v2617equiem.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -83,6 +83,10 @@ public class NavigationActivity extends AppCompatActivity {
 
             MenuItem itemSlide = menuNav.findItem(R.id.nav_slideshow);
             itemSlide.setEnabled(false);
+
+            MenuItem itemPosts = menuNav.findItem(R.id.nav_bloodRequest);
+            itemPosts.setEnabled(false);
+
         }
         else{
             MenuItem itemDonor = menuNav.findItem(R.id.nav_beADonor);
@@ -90,10 +94,14 @@ public class NavigationActivity extends AppCompatActivity {
         }
 
 
-        mAppBarConfiguration = new AppBarConfiguration.Builder(R.id.nav_bloodRequest
-                , R.id.nav_gallery, R.id.nav_slideshow,R.id.nav_beADonor,R.id.nav_home)
-                .setOpenableLayout(drawer)
-                .build();
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_beADonor,
+                R.id.nav_home,
+                R.id.nav_gallery,
+                R.id.nav_slideshow,
+                R.id.nav_bloodRequest,
+                R.id.nav_myPosts
+        ).setOpenableLayout(drawer).build();
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);

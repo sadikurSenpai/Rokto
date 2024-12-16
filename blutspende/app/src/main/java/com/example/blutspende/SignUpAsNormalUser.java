@@ -40,7 +40,7 @@ public class SignUpAsNormalUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_as_normal_user);
         bundle=getIntent().getExtras();
-        contactNumber=bundle.getString("contactNumber");
+        contactNumber=bundle.getString("phoneNumber");
 
 
         firebaseAuth=FirebaseAuth.getInstance();

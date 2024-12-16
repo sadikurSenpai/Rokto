@@ -114,9 +114,9 @@ public class SignIn extends AppCompatActivity {
     }
 
     public void forgetPass(View view) {
-        Intent intent=new Intent(this,PhoneNumberVerify.class);
-        intent.putExtra("fromWhere","forgetPass");
-        startActivity(intent);
+//        Intent intent=new Intent(this,PhoneNumberVerify.class);
+//        intent.putExtra("fromWhere","forgetPass");
+//        startActivity(intent);
     }
     @Override
     public void onBackPressed() {

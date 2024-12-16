@@ -45,7 +45,7 @@ public class PhoneNumberVerify extends AppCompatActivity {
                     editText.requestFocus();
                     return;
                 }
-                Intent intent=new Intent(getApplicationContext(),OTPverify.class);
+                Intent intent=new Intent(getApplicationContext(),SignUpAsNormalUser.class);
                 intent.putExtra("phoneNumber",s);
                 if(from.equals("forgetPass")){
                     intent.putExtra("fromWhere","forgetPass");

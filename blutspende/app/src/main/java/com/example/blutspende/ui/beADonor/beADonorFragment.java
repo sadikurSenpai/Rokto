@@ -84,7 +84,7 @@ public class beADonorFragment extends Fragment {
             "Cox’s Bazar", "Cumilla", "Feni", "Khagrachhari", "Lakshmipur", "Noakhali", "Rangamati"};
 
     private String[] categoryBloodGroup = {"","A+","B+","O+","AB+","A-","B-","O-","AB-"};
-    private int day=17,month=10,year=2022;
+    private int day=19,month=12,year=2024;
     private DatePickerDialog datePickerDialog;
     private Button button;
     private FirebaseDatabase firebaseDatabase;

@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ProgressBar;
 
@@ -37,6 +39,7 @@ public class ListOfDonors extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private DatePicker datePicker;
     private int presentDay, presentMonth, presentYear;
+    private Button button;
     private NetworkChangeListener networkChangeListener=new NetworkChangeListener();
 
 
@@ -44,6 +47,7 @@ public class ListOfDonors extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_of_donors);
+        button = findViewById(R.id.bloodRequestButton);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
         datePicker = findViewById(R.id.listOfDonorsDatePicker);
@@ -115,17 +119,21 @@ public class ListOfDonors extends AppCompatActivity {
                         Date firstDate = cal.getTime();
                         long diff = secondDate.getTime() - firstDate.getTime();
 
-                        if ((diff / 1000 / 60 / 60 / 24) > 90) {
-                            list.add(new ModelRecyclerView(modelDonors.getUsername(), modelDonors.getPhone(), modelDonors.getPictureLink(), modelDonors.getBloodGroup()));
+                        if ((diff / 1000 / 60 / 60 / 24) > 56 || (diff / 1000 / 60 / 60 / 24) < 0) {
+                            ModelRecyclerView model = new ModelRecyclerView(modelDonors.getUsername(), modelDonors.getPhone(), modelDonors.getPictureLink(), modelDonors.getBloodGroup());
+                            if (!(model.getUserName().equals(SplashScreen.name) && model.getPhoneNumber().equals(SplashScreen.contactNumber))){
+                                list.add(model);
+                            }
+
                         }
                     }
                     if (list.size() == 0) {
-                        list.add(new ModelRecyclerView("No user !!", "999", "https://www.pngitem.com/pimgs/m/22-220721_circled-user-male-type-user-colorful-icon-png.png?fbclid=IwAR3VIKtfsa7rYCRsLWYKwJ6WS0Ga54kQtLxQAowOiK55zPgD8h7QeMXwr-0", ""));
+                        list.add(new ModelRecyclerView("No Donor !!", "999", "https://www.pngitem.com/pimgs/m/22-220721_circled-user-male-type-user-colorful-icon-png.png?fbclid=IwAR3VIKtfsa7rYCRsLWYKwJ6WS0Ga54kQtLxQAowOiK55zPgD8h7QeMXwr-0", ""));
                     }
                     connector.notifyDataSetChanged();
                     progressBar.setVisibility(View.INVISIBLE);
                 } else {
-                    list.add(new ModelRecyclerView("No user !!", "999", "https://www.pngitem.com/pimgs/m/22-220721_circled-user-male-type-user-colorful-icon-png.png?fbclid=IwAR3VIKtfsa7rYCRsLWYKwJ6WS0Ga54kQtLxQAowOiK55zPgD8h7QeMXwr-0", ""));
+                    list.add(new ModelRecyclerView("No Donor !!", "999", "https://www.pngitem.com/pimgs/m/22-220721_circled-user-male-type-user-colorful-icon-png.png?fbclid=IwAR3VIKtfsa7rYCRsLWYKwJ6WS0Ga54kQtLxQAowOiK55zPgD8h7QeMXwr-0", ""));
                     connector.notifyDataSetChanged();
                     progressBar.setVisibility(View.INVISIBLE);
                 }
@@ -137,8 +145,18 @@ public class ListOfDonors extends AppCompatActivity {
             }
         });
 
-
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ListOfDonors.this,PostRequest.class);
+                intent.putExtra("div",division);
+                intent.putExtra("dis",district);
+                intent.putExtra("bg",bloodGroup);
+                startActivity(intent);
+            }
+        });
     }
+
     @Override
     protected void onStart() {
         IntentFilter filter=new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);

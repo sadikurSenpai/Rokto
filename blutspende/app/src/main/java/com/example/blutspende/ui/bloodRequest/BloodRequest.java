@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.blutspende.AdapterBloodRequest;
 import com.example.blutspende.ModelPostRequest;
+import com.example.blutspende.ModelRecyclerView;
 import com.example.blutspende.PostRequest;
 import com.example.blutspende.R;
 import com.example.blutspende.SplashScreen;
@@ -51,7 +52,7 @@ public class BloodRequest extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_blood_request, container, false);
 
         // Get access to the buttons
-        button = (Button)rootView.findViewById(R.id.bloodRequestButton);
+       // button = (Button)rootView.findViewById(R.id.bloodRequestButton);
         recyclerView=(RecyclerView)rootView.findViewById(R.id.bloodRequestRecyclerView);
 
         list=new ArrayList<>();
@@ -75,7 +76,7 @@ public class BloodRequest extends Fragment {
                         adapter.notifyDataSetChanged();
                     }
                     else{
-                        list.add(new ModelPostRequest("No User","999","","","") );
+                        list.add(new ModelPostRequest("No User","999","","","", "", "", "") );
                         adapter.notifyDataSetChanged();
                         // Toast.makeText(getContext(), "No Data!!!", Toast.LENGTH_SHORT).show();
                     }
@@ -88,7 +89,7 @@ public class BloodRequest extends Fragment {
             });
         }
         else{
-            databaseReference.child("PostRequests").child(SplashScreen.div).addValueEventListener(new ValueEventListener() {
+            databaseReference.child("PostRequests").child(SplashScreen.div).child(SplashScreen.dis).child(SplashScreen.bg).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     list.clear();
@@ -96,12 +97,18 @@ public class BloodRequest extends Fragment {
                         for (DataSnapshot x:
                                 snapshot.getChildren()) {
                             ModelPostRequest modelPostRequest=x.getValue(ModelPostRequest.class);
-                            list.add(modelPostRequest);
+                            if (!(modelPostRequest.getUserName().equals(SplashScreen.name) && modelPostRequest.getPhoneNumber().equals(SplashScreen.contactNumber))){
+                                list.add(modelPostRequest);
+                            }
+
+                        }
+                        if (list.size() == 0) {
+                            list.add(new ModelPostRequest("No Posts Yet","","","","","", "", ""));
                         }
                         adapter.notifyDataSetChanged();
                     }
                     else{
-                        list.add(new ModelPostRequest("No User","999","","","") );
+                        list.add(new ModelPostRequest("No Post","","","","","","","") );
                         adapter.notifyDataSetChanged();
                         // Toast.makeText(getContext(), "No Data!!!", Toast.LENGTH_SHORT).show();
                     }
@@ -119,12 +126,12 @@ public class BloodRequest extends Fragment {
 
 
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity( new Intent(getContext(),PostRequest.class ));
-            }
-        });
+//        button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity( new Intent(getContext(),PostRequest.class ));
+//            }
+//        });
 
         return rootView;
 

@@ -25,7 +25,8 @@
             android:drawableTint="@color/purple_500"
             android:drawablePadding="4dp"
             android:inputType="phone"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:maxLength="11"/>
 
     <TextView
         android:id="@+id/textViewPhoneNumberVerify"
@@ -35,15 +36,16 @@
         android:layout_marginTop="16dp"
         android:text="Note:\nEnter a number for signing up.\nThis number will help you to login.\nIf you want to be a donor, this phone number will be used for reaching to you."
         android:textColor="@color/purple_500"/>
+
     <Button
         android:id="@+id/phoneNumberVerifyButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="16dp"
-        android:text="send otp"
         android:background="@drawable/custom_btn"
+        android:text="Proceed"
         android:textColor="@color/purple_700"
-        android:textSize="18sp"/>
+        android:textSize="18sp" />
 
 </LinearLayout>
