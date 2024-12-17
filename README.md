@@ -2,7 +2,7 @@
 
 Welcome to the **Rokto: A Blood Donation Network** project! 💉
 
-This is an Android application designed to help people find blood donors in their area. The app allows users to sign up either as a **donor** or a **normal user**. The goal is to create a platform where blood donors can connect with people in need of blood by searching for donors based on blood group and location.
+This Android application is designed to help people find blood donors in their area. The app allows users to sign up either as a **donor** or a **normal user**. The goal is to create a platform where blood donors can connect with people needing blood by searching for donors based on blood group and location.
 
 ## Features
 
